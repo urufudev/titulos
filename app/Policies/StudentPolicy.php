@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Student;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TecnologicPolicy
+class StudentPolicy
 {
     use HandlesAuthorization;
 

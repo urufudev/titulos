@@ -59,7 +59,7 @@
               <a class="text-center">
                            
                 <h5 class="brand-text ">{{ Auth::user()->full_namea ?? 'Invitado'}}</h5>
-                <span class="brand-text">SOPORTE TÉCNICO PAD</span>
+                {{-- <span class="brand-text">SOPORTE TÉCNICO PAD</span> --}}
               </a>
             </li>
           </ul>
@@ -80,7 +80,7 @@
           
         <li class="navigation-header"><span>Inicio</span></li>
         <li class="nav-item {{(request()->is('dashboard'.'*')) ? 'active' : '' }}">
-          <a href="http://10.15.1.250:8000/dashboard ">
+          <a href="{{asset('/dashboard')}}  ">
             <i class="menu-livicon" data-icon="cpu"></i>                   
           <span class="menu-title">Inicio</span>
           </a>

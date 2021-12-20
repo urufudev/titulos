@@ -49,7 +49,7 @@
                 </div>
               </div>
         </div>
-        {{Form::date('title_regdate',(isset($student)) ? $student->title_date : null,['class'=>'form-control','autocomplete'=>'off'])}}
+        {{-- {{Form::date('title_regdate',(isset($student)) ? $student->title_date : null,['class'=>'form-control','autocomplete'=>'off'])}} --}}
         @livewire('students.select', ['carrer' => (isset($student)) ? $student->carrer_id : null,'student' => (isset($student)) ? $student : null])
 
               {{-- <div class="form-group">

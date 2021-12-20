@@ -18,7 +18,7 @@
             <div class="card-content">
               <div class="card-body">
                 <h4 class="card-title">Editar</h4>
-                {!! Form::model($student,['route'=>['students.update', $student->id],'method'=>'PUT']) !!}
+                {!! Form::model($student,['route'=>['students.update', $student],'method'=>'PUT']) !!}
                                 
                     @include('students.partials.form')
 

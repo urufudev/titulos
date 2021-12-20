@@ -29,7 +29,7 @@ class UpdateRequest extends FormRequest
             'ap_paterno' =>'required',
             'ap_materno' =>'required',
             'email' =>'required',
-            'password' =>'required',
+            
             'dni' => ['numeric','digits:8','required', Rule::unique('users', 'dni')->ignore($this->route('user'))],
 
         ];

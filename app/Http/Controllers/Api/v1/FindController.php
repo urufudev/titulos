@@ -23,7 +23,7 @@ class FindController extends Controller
         ->where('document_number','=',$request->document_number)
         ->get();
         
-        return view('search.index',compact('search','pageConfigs','breadcrumbs')); */
+        return view('front.search',compact('search','pageConfigs','breadcrumbs')); */
 
         if (Student::where('document_number', $dni)->exists()) {
             $student = Student::where('document_number', $dni)->with('institute','carrer')->get();

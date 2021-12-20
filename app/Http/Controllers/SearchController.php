@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Institute;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -23,9 +24,10 @@ class SearchController extends Controller
         ->where('document_number','=',$request->document_number)
         ->get();
     if(count($search) > 0)
-        return view('search.index',compact('pageConfigs','breadcrumbs'))->withDetails($search)->withQuery ( $request );
-    else return view ('search.index',compact('pageConfigs','breadcrumbs'))->withMessage('No Details found. Try to search again !');
+        return view('front.search',compact('pageConfigs','breadcrumbs'))->withDetails($search)->withQuery ( $request );
+    else return view ('front.search',compact('pageConfigs','breadcrumbs'))->withMessage('No Details found. Try to search again !');
  */
+
         return view('search.index',compact('pageConfigs','breadcrumbs'));
     }
 
@@ -46,8 +48,22 @@ class SearchController extends Controller
 
         /* $listStudent = $student->json();
  */
-        
+    }
 
+    public function institute(){
 
+        $institutes = Institute::where('status','ACTIVO')
+        ->get()
+        ->sortBy('type')
+        ->groupBy('type');
+
+       /*  dd($institutes); */
+
+        return view('search.institutes',compact('institutes'));
+    }
+
+    public function about(){
+
+        return view('search.about');
     }
 }

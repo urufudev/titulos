@@ -34,32 +34,32 @@ class StudentImport implements
     public function model(array $row)
     {
 
-        $institute =  Institute::where('name',$row['institute'])->first();
-        $carrer = Carrer::where('name', $row['carrer'])->where('institute_id',$institute->id)->first();
+        $institute =  Institute::where('modular',$row['modular'])->first();
+        $carrer = Carrer::where('name', $row['carrera'])->where('institute_id',$institute->id)->first();
 
         /* dd($institute->id,$carrer->id, $row['carrer'],$row['institute']); */
         return new Student([
             'institute_id' => $institute->id,
             'carrer_id' => $carrer->id,
-            'name' => $row['name'],
+            'name' => $row['nombre'],
             'ap_paterno' => $row['ap_paterno'],
             'ap_materno' => $row['ap_materno'],
-            'document_type' => $row['document_type'],
-            'document_number' => $row['document_number'],
-            'title_number' => $row['title_number'],
-            'title_name' => $row['title_name'],
-            'title_level' => $row['title_level'],
-            'title_date' => Date::excelToDateTimeObject($row['title_date']),
-            'title_code' => $row['title_code'],
-            'title_regnumber' => $row['title_regnumber'],
-            'title_resnumber' => $row['title_resnumber'],
-            'title_regdate' => Date::excelToDateTimeObject($row['title_regdate']),
-            'title_regbook' => $row['title_regbook'],
-            'title_folio' => $row['title_folio'],
-            'ins_director' => $row['ins_director'],
-            'ins_secretary' => $row['ins_secretary'],
-            'dre_secretary' => $row['dre_secretary'],
-            'dre_certificate' => $row['dre_certificate'],
+            'document_type' => $row['tipo_documento'],
+            'document_number' => $row['numero_documento'],
+            'title_number' => $row['numero_titulo'],
+            'title_name' => $row['nombre_titulo'],
+            'title_level' => $row['nivel_titulo'],
+            'title_date' => Date::excelToDateTimeObject($row['fecha_titulo']),
+            'title_code' => $row['codigo_titulo'],
+            'title_regnumber' => $row['numregistro_titulo'],
+            'title_resnumber' => $row['numresolucion_titulo'],
+            'title_regdate' => Date::excelToDateTimeObject($row['fechareg_titulo']),
+            'title_regbook' => $row['libroreg_titulo'],
+            'title_folio' => $row['folio_titulo'],
+            'ins_director' => $row['director_ins'],
+            'ins_secretary' => $row['secreataria_ins'],
+            'dre_secretary' => $row['secreatario_dre'],
+            'dre_certificate' => $row['certificados_dre'],
             
 
 
@@ -69,7 +69,7 @@ class StudentImport implements
     public function rules(): array
     {
         return [
-            '*.title_number' => [ 'unique:students,title_number']
+            '*.numero_titulo' => [ 'unique:students,title_number']
         ];
     }
 
@@ -82,7 +82,7 @@ class StudentImport implements
     public function customValidationAttributes()
     {
         return [
-            'title_number' => 'Numero de Titulo',                                            
+            'numero_titulo' => 'Numero de Titulo',                                            
         ];
     }        
 

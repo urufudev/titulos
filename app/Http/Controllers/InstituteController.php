@@ -71,7 +71,14 @@ class InstituteController extends Controller
      */
     public function show(Institute $institute)
     {
-        return view('institutes.show', compact('institute'));
+        $pageConfigs = ['pageHeader' => true];
+        $breadcrumbs = [
+            ["link" => "/dashboard", "name" => "Home"],
+            ["link"=> "/institutes","name" => "Institutos"],
+            ["name" => "Ver"]
+        ];
+
+        return view('institutes.show', compact('institute','pageConfigs','breadcrumbs'));
     }
 
     /**

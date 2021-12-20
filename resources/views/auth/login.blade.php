@@ -99,19 +99,19 @@
                         </button>
                     </div>
                     
-                    @if (Route::has('password.request'))
+                   {{--  @if (Route::has('password.request'))
                     <div class="col-12 text-center mt-1">
                         <a href="{{ route('password.request') }}" class="btn btn-link box-shadow-0 px-0">¿Se te olvidó tu contraseña?</a>
                     </div>    
-                    @endif
+                    @endif --}}
                     
                 </div>
                 
             </form>
                 <hr>
-                <div class="text-center pt-1">
+                {{-- <div class="text-center pt-1">
                     <div class="font-weight-normal fs-16">No tienes una cuenta <a class="btn-link font-weight-normal" href="{{ route('register') }}">Registrarse aquí</a></div>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>

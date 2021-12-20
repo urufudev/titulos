@@ -48,6 +48,12 @@ class StudentImportController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'file' => 'required|mimes:xls,xlsx',
+        ]);
+
+
         $file = $request->file('file')->store('import');
 
         $import = new StudentImport;

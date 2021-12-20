@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use App\Models\Institute;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index(){
-        return view('dashboard');
+
+        $students = Student::get()->count();
+
+        $institutes_t = Institute::where('type','TECNOLOGICO')->get()->count();
+        $institutes_p = Institute::where('type','PEDAGOGICO')->get()->count();
+
+        
+
+
+
+        return view('dashboard',compact('students','institutes_t','institutes_p'));
     }
-    //ecommerce
-    public function dashboardEcommerce(){
-        return view('pages.dashboard-ecommerce');
-    }
-    // analystic
-    public function dashboardAnalytics(){
-        return view('pages.dashboard-analytics');
-    }
+
 }

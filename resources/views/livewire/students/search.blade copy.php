@@ -1,5 +1,5 @@
 <div>
-    {{-- {!! Form::open(['route' => 'search.index', 'method' => 'post']) !!} --}}
+    {{-- {!! Form::open(['route' => 'front.search', 'method' => 'post']) !!} --}}
     {{-- {{ csrf_field() }} --}}
     
  {{--    <form wire:submit.prevent="findStudent" >

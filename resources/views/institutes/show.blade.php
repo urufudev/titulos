@@ -1,6 +1,6 @@
 @extends('layouts.contentLayoutMaster')
 
-@section('title','Trabajo Presencial')
+@section('title','Institutos')
 
 @section('actionbutton')
 <a href="{{route('institutes.index')}}"  class="btn btn-secondary">
@@ -67,10 +67,7 @@
             </tbody>
           </table>
         </div>
-        <p class="font-medium-3">Progreso</p>
-        <div class="progress progress-bar-primary progress-sm ">
-          <div class="progress-bar progress-label" role="progressbar" aria-valuenow="20" style='width:50%'></div>
-        </div>
+        
 
       </div>
 

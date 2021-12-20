@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Student\StoreRequest;
 use App\Http\Requests\Student\UpdateRequest;
 use App\Models\Institute;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class StudentController extends Controller
 {
@@ -24,9 +25,9 @@ class StudentController extends Controller
     {
         $pageConfigs = ['pageHeader' => true];
         $breadcrumbs = [
-            ["link" => "/dashboard", "name" => "Home"],["name" => "Estudiantes"]
+            ["link" => "/dashboard", "name" => "Home"], ["name" => "Estudiantes"]
         ];
-        return view('students.index',['pageConfigs'=>$pageConfigs,'breadcrumbs'=>$breadcrumbs]);
+        return view('students.index', ['pageConfigs' => $pageConfigs, 'breadcrumbs' => $breadcrumbs]);
     }
 
     /**
@@ -39,7 +40,7 @@ class StudentController extends Controller
         $pageConfigs = ['pageHeader' => true];
         $breadcrumbs = [
             ["link" => "/dashboard", "name" => "Home"],
-            ["link"=> "/students","name" => "Estudiantes"],
+            ["link" => "/students", "name" => "Estudiantes"],
             ["name" => "Crear"]
         ];
 
@@ -50,8 +51,8 @@ class StudentController extends Controller
 
         /* dd($institutes->carrers->first()); */
         $student = new Student();
-        
-        return view('students.create',compact('student',/* 'institutes', */'breadcrumbs','pageConfigs'));
+
+        return view('students.create', compact('student',/* 'institutes', */ 'breadcrumbs', 'pageConfigs'));
     }
 
     /**
@@ -79,7 +80,21 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        $pageConfigs = ['pageHeader' => true];
+        $breadcrumbs = [
+            ["link" => "/dashboard", "name" => "Home"],
+            ["link" => "/users", "name" => "Usuarios"],
+            ["name" => "Ver"]
+        ];
+
+        $students = Student::where('document_number', $student->document_number)
+            ->get()
+            ->groupBy('full_name')->toBase();
+
+        /* dd($students); */
+
+
+        return view('students.show', compact('students', 'pageConfigs', 'breadcrumbs'));
     }
 
     /**
@@ -93,18 +108,18 @@ class StudentController extends Controller
         $pageConfigs = ['pageHeader' => true];
         $breadcrumbs = [
             ["link" => "/dashboard", "name" => "Home"],
-            ["link"=> "/students","name" => "Estudiantes"],
+            ["link" => "/students", "name" => "Estudiantes"],
             ["name" => "Editar"]
         ];
-        
 
-   /*      $institutes=Institute::orderBy('name','ASC')
+
+        /*      $institutes=Institute::orderBy('name','ASC')
         ->where('status','=','ACTIVO')   
         ->pluck('name','id','type'); */
 
         /* dd($student); */
 
-        return view('students.edit',compact('student','pageConfigs','breadcrumbs'));
+        return view('students.edit', compact('student', 'pageConfigs', 'breadcrumbs'));
     }
 
     /**
@@ -116,8 +131,9 @@ class StudentController extends Controller
      */
     public function update(UpdateRequest $request, Student $student)
     {
-        $student->fill(array_merge($request->except('status'),[
-            'status'=> $request->status == 'on' ? 'ACTIVO' : 'INACTIVO' 
+        
+        $student->fill(array_merge($request->except('status'), [
+            'status' => $request->status == 'on' ? 'ACTIVO' : 'INACTIVO'
         ]))
             ->save();
 
@@ -136,5 +152,17 @@ class StudentController extends Controller
         //
     }
 
+    public function pdf(Student $student)
+    {
 
+        $students = Student::where('document_number', $student->document_number)
+            ->get()
+            ->groupBy('full_name')->toBase();
+
+        $pdf = PDF::loadView('reports.certificate', compact('students', 'student'))->setPaper('A4', 'portrait')
+            ->setOptions(['isRemoteEnabled' => true, 'isHtml5ParserEnabled' => false, 'isPhpEnabled' => true]);
+
+
+        return $pdf->stream();
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Students;
 
+use App\Models\Carrer;
+use App\Models\Institute;
 use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,14 +23,14 @@ class Table extends Component
 
     public $isOpen = false;
     public $perPage = 10;
-    public $sortField = "id";
+    public $sortField = "students.id";
     public $sortAsc = true;
     public $search = '';
     public function render()
     {
         /* dd(request()->getRequestUri()); */
 
-        $students = Student::query()
+/*         $students = Student::query()
             ->search($this->search)
             ->join('institutes as ins','students.institute_id', '=', 'ins.id' )
             ->join('carrers as car','students.carrer_id', '=', 'car.id' )
@@ -36,6 +38,15 @@ class Table extends Component
             ,'students.institute_id','students.carrer_id', 'ins.name as insname','car.name as carname', )
             ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
             
+            ->paginate($this->perPage); */
+
+            $students = Student::query()
+            ->with('institute')
+            
+            ->search($this->search)
+            
+            ->orderBy(Institute::select($this->sortField)->whereColumn('institutes.id', 'students.institute_id'), $this->sortAsc ? 'desc' : 'asc')
+            /* ->orderBy(Carrer::select($this->sortField)->whereColumn('carrers.id', 'students.carrer_id'), $this->sortAsc ? 'desc' : 'asc') */
             ->paginate($this->perPage);
 
         return view('livewire.students.table',compact('students'));
@@ -65,25 +76,32 @@ class Table extends Component
     }
 
 
-    public function destroy(Student $student)
+    public function destroy($student)
     {
-        
+       /*  $studentx =  Student::findByHashId($student);
+        dd($studentx);   */ 
         Gate::authorize('forceDelete',$student);
-        if ($student->status == 'ACTIVO') {
+        $find_student  = Student::findOrFail($student);
+
+        $find_student->delete();
+        $url="?perPage={$this->perPage}&page={$this->page}&search={$this->search}";
+        session()->flash('danger', 'Se elimino el estudiante.');
+        return redirect()->to('/students'.$url);
+        /* if ($student->status == 'ACTIVO') {
             $student->update(['status' => 'INACTIVO']);
             $url="?perPage={$this->perPage}&page={$this->page}&search={$this->search}";
             session()->flash('danger', 'Se cambio a inactivo correctamente.');
             return redirect()->to('/students'.$url);
             
-            /* return back()->with('info', 'SE CAMBIO A INACTIVO CORRECTAMENTE '); */
+           
         }
         else {
             $student->update(['status' => 'ACTIVO']);
             $url="?perPage={$this->perPage}&page={$this->page}&search={$this->search}";
             session()->flash('warning', 'Se cambio a activo correctamente.');
             return redirect()->to('/students'.$url);
-            /* return back()->with('warning', 'SE CAMBIO A ACTIVO CORRECTAMENTE '); */
-        } 
+           
+        }  */
     }
     
 }

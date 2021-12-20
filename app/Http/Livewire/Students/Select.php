@@ -19,6 +19,9 @@ class Select extends Component
     
     public $student = null;
 
+    public $level_tecnologico = null;
+    public $level_pedagogico = null;
+
     public function mount($carrer = null)
     {
         $this->institutes = Institute::orderBy('name','ASC')
@@ -49,8 +52,18 @@ class Select extends Component
 
 
                 $this->typeinsti = Institute::where('id',$carrerx->institute_id)->pluck('type')->first();
+
+
+                /* if ($this->typeinsti == 'TECNOLOGICO') {
+                    $this->level_tecnologico = array('TECNICO','PROFESIONAL TECNICO','PROFESIONAL');
+                }
+                elseif($this->typeinsti == 'PEDAGOGICO'){
+                    $this->level_tecnologico = array('INICIAL','PRIMARIA','SECUNDARIA');
+                } */
             }
         }
+
+        
 
     }
 

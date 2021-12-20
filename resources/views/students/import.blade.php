@@ -22,17 +22,17 @@
          @csrf
          <div class="card">
           <div class="card-header">
-            <h4 class="card-title">File Input</h4>
+            <h4 class="card-title">Importar Lista de Estudiantes</h4>
           </div>
           <div class="card-body">
             <div class="row">
               
               <div class=" col-md-12">
                 <fieldset class="form-group">
-                  <label for="basicInputFile">With Browse button</label>
+                  <label for="basicInputFile">Selecciona el archivo excel</label>
                   <div class="custom-file">
                     <input type="file" name="file" class="custom-file-input" id="inputGroupFile01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    <label class="custom-file-label" for="inputGroupFile01">Cargar archivo</label>
                   </div>
                 </fieldset>
                 <div class="form-actions d-flex justify-content-end">
@@ -52,48 +52,53 @@
     </div>
     <div class="col-md-12">
       <div class="card">
+                 
+
         @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
         </div>
-    @endif
+        @endif
+
         @if (isset($errors) && $errors->any())
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                {{ $error }}
-                            @endforeach
-                        </div>
-                    @endif
+            <div class="alert bg-rgba-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
+            </div>
+        @endif
 
-                    @if (session()->has('failures'))
+        @if (session()->has('failures'))
 
-                        <table class="table table-danger">
-                            <tr>
-                                <th>Row</th>
-                                <th>Attribute</th>
-                                <th>Errors</th>
-                                <th>Value</th>
-                            </tr>
+            <table class="table table-danger mb-0">
+              <thead>
+                <tr>
+                    <th>Columna</th>
+                    <th>Atributo</th>
+                    <th>Error</th>
+                    
+                </tr>
+              </thead>
+              <tbody>
+                @foreach (session()->get('failures') as $validation)
+                    <tr>
+                        <td class="text-bold-500">{{ $validation->row() }}</td>
+                        <td>{{ $validation->attribute() }}</td>
+                        <td>
+                            <ul>
+                                @foreach ($validation->errors() as $e)
+                                    <li>{{ $e }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                        
+                    </tr>
+                @endforeach
+              </tbody>
+            </table>
 
-                            @foreach (session()->get('failures') as $validation)
-                                <tr>
-                                    <td>{{ $validation->row() }}</td>
-                                    <td>{{ $validation->attribute() }}</td>
-                                    <td>
-                                        <ul>
-                                            @foreach ($validation->errors() as $e)
-                                                <li>{{ $e }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </td>
-                                    <td>
-                                       {{--  {{ $validation->values()[$validation->attribute()] }} --}}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
-
-                    @endif
+        @endif
+        
       </div>
     </div>
   </div>

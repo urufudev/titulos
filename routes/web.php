@@ -12,7 +12,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\StudentImportController;
-
+use Illuminate\Support\Facades\Crypt;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,39 +24,42 @@ use App\Http\Controllers\StudentImportController;
 |
 */
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('front.index');
 
-require __DIR__.'/auth.php';
-Route::get('search',[SearchController::class, 'index'])->name('search.index');
+require __DIR__ . '/auth.php';
+Route::get('consulta', [SearchController::class, 'index'])->name('front.search');
+Route::get('front/institutes', [SearchController::class, 'institute'])->name('front.institutes');
+Route::get('front/about', [SearchController::class, 'about'])->name('front.about');
+Route::get('titulo/{student}', [StudentController::class, 'pdf'])->name('students.pdf');
 Route::middleware(['auth'])->group(function () {
-     
+
      //Roles
-     Route::resource('roles',RoleController::class)->except(['show']);
+     Route::resource('roles', RoleController::class)->except(['show']);
 
      Route::get('/dashboard', [DashboardController::class, 'index']);
-    
 
-     Route::resource('institutes',InstituteController::class);
+
+     Route::resource('institutes', InstituteController::class);
 
      Route::get('students/import', [StudentImportController::class, 'index'])->name('students.import.index');
      Route::post('students/import', [StudentImportController::class, 'store'])->name('students.import.excel');
-     
-     
-     Route::resource('students',StudentController::class);
-     Route::resource('users',UserController::class);
-     Route::resource('institutes.carrers',CarrerController::class)->except(['index','show']);
 
-     
-/*      Route::post('search',[SearchController::class, 'find'])->name('search.find');
+     /* Route::get('students/{student}/pdf', [StudentController::class, 'pdf'])->name('students.pdf'); */
+     Route::resource('students', StudentController::class);
+     Route::resource('users', UserController::class)->except(['show']);
+     Route::resource('institutes.carrers', CarrerController::class)->except(['index', 'show']);
+
+
+     /*      Route::post('search',[SearchController::class, 'find'])->name('search.find');
  */
 
      /* Route::post('students/import_parse', [StudentImportController::class, 'parseImport'])->name('students.import_parse');
      Route::post('students/import_process', [StudentImportController::class, 'processImport'])->name('students.import_process'); */
 
-     Route::post('/carrerdep',[CarrerController::class, 'carrerdep'])->name('carrerdep');
+     Route::post('/carrerdep', [CarrerController::class, 'carrerdep'])->name('carrerdep');
 
-     
-     
+
+
 
      /* Route::resource('imports', [StudentImportController::class]); */
 });
