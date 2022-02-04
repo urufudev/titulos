@@ -187,5 +187,45 @@ class InstituteSeeder extends Seeder
             'type'=>'PEDAGOGICO',
             'status'=>'ACTIVO'
         ]);
+        Institute::create([
+            'modular'=>'1140144',
+            'name' => 'CUNA DE LA LIBERTAD AMERICANA',
+            'local' => '074883',
+            'address' =>'Jiron Garcilazo De La Vega 257',
+            'type'=>'PEDAGOGICO',
+            'status'=>'ACTIVO'
+        ]);
+        Institute::create([
+            'modular'=>'1198019',
+            'name' => 'EL NAZARENO',
+            'local' => '080087',
+            'address' =>'Jiron Miller 370',
+            'type'=>'PEDAGOGICO',
+            'status'=>'ACTIVO'
+        ]);
+        Institute::create([
+            'modular'=>'1140102',
+            'name' => 'EL PACÍFICO',
+            'local' => '074878',
+            'address' =>'Jiron Callao 264',
+            'type'=>'PEDAGOGICO',
+            'status'=>'INACTIVO'
+        ]);
+        Institute::create([
+            'modular'=>'1140060',
+            'name' => 'JESUS NAZARENO',
+            'local' => '000000',
+            'address' =>'No Vigente',
+            'type'=>'PEDAGOGICO',
+            'status'=>'INACTIVO'
+        ]);
+        Institute::create([
+            'modular'=>'1162924',
+            'name' => 'SAN MIGUEL ARCANGEL',
+            'local' => '082265',
+            'address' =>'No Vigente',
+            'type'=>'PEDAGOGICO',
+            'status'=>'INACTIVO'
+        ]);
     }
 }

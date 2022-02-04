@@ -1,6 +1,6 @@
 @extends('layouts.fullLayoutMaster')
 {{-- title --}}
-@section('title','Login Page')
+@section('title','Iniciar Sesión')
 {{-- page scripts --}}
 @section('page-styles')
 <link rel="stylesheet" type="text/css" href="{{asset('css/pages/authentication.css')}}">

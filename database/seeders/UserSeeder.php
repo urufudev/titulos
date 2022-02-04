@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
 
         // Create user
         
-        User::updateOrCreate([
+        /* User::updateOrCreate([
             
             'name' => 'Jone Doe',
             'ap_paterno' => 'DREA',
@@ -41,9 +41,9 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123'),
             'status' => true,
             
-        ]);
+        ]); */
 
-        User::factory()->times(100)->create();
+        /* User::factory()->times(100)->create(); */
     
     }
 }

@@ -21,8 +21,8 @@ class CreateStudentsTable extends Migration
             $table->string('ap_paterno');
             $table->string('ap_materno');
             $table->enum('document_type',['DNI','CE'])->default('DNI');
-            $table->integer('document_number');
-            $table->integer('title_number');
+            $table->string('document_number');
+            $table->string('title_number');
             $table->string('title_name');
             $table->enum('title_level',['TECNICO','PROFESIONAL TECNICO','PROFESIONAL','INICIAL','PRIMARIA','SECUNDARIA']);
             $table->date('title_date');

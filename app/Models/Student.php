@@ -77,7 +77,7 @@ class Student extends Model
             ->Orwhere('ap_paterno', 'like', '%' . $val . '%')
             ->Orwhere('ap_materno', 'like', '%' . $val . '%')
             ->Orwhere('document_number', 'like', '%' . $val . '%')
-            ->WhereHas('institute', function ($query) use ($val) {
+            ->orWhereHas('institute', function ($query) use ($val) {
                 $query->where('name', 'like', '%' . $val . '%');
             })
             ->orWhereHas('carrer', function ($query) use ($val) {

@@ -335,6 +335,12 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'17',
+            'name' => 'EDUCACIÓN INICIAL',
+            'description' => 'EDUCACIÓN INICIAL',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'17',
             'name' => 'EDUCACIÓN PRIMARIA EIB',
             'description' => 'EDUCACIÓN PRIMARIA EIB',
             'status'=>'ACTIVO'
@@ -347,14 +353,44 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'17',
-            'name' => 'IDIOMAS: INGLES',
-            'description' => 'IDIOMAS: INGLES',
+            'name' => 'IDIOMAS-ESPECIALIDAD INGLÉS',
+            'description' => 'IDIOMAS-ESPECIALIDAD INGLÉS',
             'status'=>'ACTIVO'
         ]);
         Carrer::create([
             'institute_id'=>'17',
             'name' => 'EDUCACIÓN FÍSICA',
             'description' => 'EDUCACIÓN FÍSICA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'17',
+            'name' => 'CIENCIA,TECNOLOGÍA Y AMBIENTE',
+            'description' => 'CIENCIA,TECNOLOGÍA Y AMBIENTE',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'17',
+            'name' => 'COMUNICACIÓN',
+            'description' => 'COMUNICACIÓN',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'17',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'17',
+            'name' => 'MATEMÁTICA',
+            'description' => 'MATEMÁTICA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'17',
+            'name' => 'MATEMÁTICA',
+            'description' => 'MATEMÁTICA',
             'status'=>'ACTIVO'
         ]);
 
@@ -367,8 +403,26 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'18',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'18',
             'name' => 'EDUCACIÓN PRIMARIA EIB',
             'description' => 'EDUCACIÓN PRIMARIA EIB',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'18',
+            'name' => 'EDUCACIÓN FÍSICA',
+            'description' => 'EDUCACIÓN FÍSICA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'18',
+            'name' => 'EDUCACIÓN PRIMARIA INTERCULTURAL BILINGÜE',
+            'description' => 'EDUCACIÓN PRIMARIA INTERCULTURAL BILINGÜE',
             'status'=>'ACTIVO'
         ]);
         Carrer::create([
@@ -399,6 +453,12 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'19',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'19',
             'name' => 'EDUCACIÓN FÍSICA',
             'description' => 'EDUCACIÓN FÍSICA',
             'status'=>'ACTIVO'
@@ -411,14 +471,26 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'19',
-            'name' => 'CIENCIA, TECNOLOGIA Y AMBIENTE',
-            'description' => 'CIENCIA, TECNOLOGIA Y AMBIENTE',
+            'name' => 'MATEMÁTICA',
+            'description' => 'MATEMÁTICA',
             'status'=>'ACTIVO'
         ]);
         Carrer::create([
             'institute_id'=>'19',
-            'name' => 'MATEMATICA',
-            'description' => 'MATEMATICA',
+            'name' => 'CIENCIA,TECNOLOGÍA Y AMBIENTE',
+            'description' => 'CIENCIA,TECNOLOGÍA Y AMBIENTE',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'19',
+            'name' => 'MATEMÁTICA',
+            'description' => 'MATEMÁTICA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'19',
+            'name' => 'COMPUTACIÓN E INFORMÁTICA',
+            'description' => 'COMPUTACIÓN E INFORMÁTICA',
             'status'=>'ACTIVO'
         ]);
 
@@ -427,6 +499,24 @@ class CarrerSeeder extends Seeder
             'institute_id'=>'20',
             'name' => 'EDUCACIÓN INICIAL',
             'description' => 'EDUCACIÓN INICIAL',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'20',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'20',
+            'name' => 'EDUCACIÓN SECUNDARIA',
+            'description' => 'EDUCACIÓN SECUNDARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'20',
+            'name' => 'EDUCACIÓN PRIMARIA EIB',
+            'description' => 'EDUCACIÓN PRIMARIA EIB',
             'status'=>'ACTIVO'
         ]);
         Carrer::create([
@@ -443,8 +533,26 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'20',
-            'name' => 'IDIOMAS, ESPECIALIDAD: INGLES',
-            'description' => 'IDIOMAS, ESPECIALIDAD: INGLES',
+            'name' => 'IDIOMAS-ESPECIALIDAD INGLÉS',
+            'description' => 'IDIOMAS-ESPECIALIDAD INGLÉS',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'20',
+            'name' => 'EDUCACIÓN PARA EL TRABAJO-INDUSTRIAS ALIMENTARIAS',
+            'description' => 'EDUCACIÓN PARA EL TRABAJO-INDUSTRIAS ALIMENTARIAS',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'20',
+            'name' => 'COMPUTACIÓN E INFORMÁTICA',
+            'description' => 'COMPUTACIÓN E INFORMÁTICA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'20',
+            'name' => 'COMUNICACIÓN',
+            'description' => 'COMUNICACIÓN',
             'status'=>'ACTIVO'
         ]);
 
@@ -463,6 +571,12 @@ class CarrerSeeder extends Seeder
         ]);
         Carrer::create([
             'institute_id'=>'21',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'21',
             'name' => 'EDUCACIÓN FÍSICA',
             'description' => 'EDUCACIÓN FÍSICA',
             'status'=>'ACTIVO'
@@ -473,6 +587,103 @@ class CarrerSeeder extends Seeder
             'description' => 'COMPUTACIÓN E INFORMÁTICA',
             'status'=>'ACTIVO'
         ]);
+        Carrer::create([
+            'institute_id'=>'21',
+            'name' => 'CIENCIAS NATURALES-MENCIÓN BIOLOGIA Y QUIMICA',
+            'description' => 'CIENCIAS NATURALES-MENCIÓN BIOLOGIA Y QUIMICA',
+            'status'=>'ACTIVO'
+        ]);
+
+
+        /* CUNA DE LA LIBERTAD AMERICANA  */
+        Carrer::create([
+            'institute_id'=>'22',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'22',
+            'name' => 'EDUCACIÓN SECUNDARIA',
+            'description' => 'EDUCACIÓN SECUNDARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'22',
+            'name' => 'COMPUTACIÓN E INFORMÁTICA',
+            'description' => 'COMPUTACIÓN E INFORMÁTICA',
+            'status'=>'ACTIVO'
+        ]);
+
+
+        /* EL NAZARENO */
+        Carrer::create([
+            'institute_id'=>'23',
+            'name' => 'EDUCACIÓN INICIAL',
+            'description' => 'EDUCACIÓN INICIAL',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'23',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'23',
+            'name' => 'COMUNICACIÓN',
+            'description' => 'COMUNICACIÓN',
+            'status'=>'ACTIVO'
+        ]);
+
+        /* EL PACIFICO */
+        Carrer::create([
+            'institute_id'=>'24',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'24',
+            'name' => 'EDUCACIÓN SECUNDARIA-ESPECIALIDAD HISTORIA Y GEOGRAFIA',
+            'description' => 'EDUCACIÓN SECUNDARIA-ESPECIALIDAD HISTORIA Y GEOGRAFIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'24',
+            'name' => 'LENGUA Y LITERATURA',
+            'description' => 'LENGUA Y LITERATURA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'24',
+            'name' => 'HISTORIA Y GEOGRAFIA',
+            'description' => 'HISTORIA Y GEOGRAFIA',
+            'status'=>'ACTIVO'
+        ]);
+
+        /* JESUS NAZARENO INACTIVO*/
+        Carrer::create([
+            'institute_id'=>'25',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+        Carrer::create([
+            'institute_id'=>'25',
+            'name' => 'COMUNICACIÓN',
+            'description' => 'COMUNICACIÓN',
+            'status'=>'ACTIVO'
+        ]);      
+    
+        /* SAN MIGUEL ARCANGEL INACTIVO*/
+        Carrer::create([
+            'institute_id'=>'26',
+            'name' => 'EDUCACIÓN PRIMARIA',
+            'description' => 'EDUCACIÓN PRIMARIA',
+            'status'=>'ACTIVO'
+        ]);
+
 
     }
 }

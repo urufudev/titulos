@@ -36,8 +36,8 @@ class StudentImport implements
 
         $institute =  Institute::where('modular',$row['modular'])->first();
         $carrer = Carrer::where('name', $row['carrera'])->where('institute_id',$institute->id)->first();
-
-        /* dd($institute->id,$carrer->id, $row['carrer'],$row['institute']); */
+       
+        /* dd($institute->id,$carrer->id, $row['carrera'],$row['modular']); */
         return new Student([
             'institute_id' => $institute->id,
             'carrer_id' => $carrer->id,
